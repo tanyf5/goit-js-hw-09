@@ -4,12 +4,12 @@ const textArea = form.elements.message;
 const email = form.elements.email;
 const localStorageKey = 'feedback-form-state';
 
-const dataFromLokalStorage = JSON.parse(localStorage.getItem(localStorageKey));
-if (dataFromLokalStorage) {
-  email.value = dataFromLokalStorage.email || '';
-  formData.email = dataFromLokalStorage.email || '';
-  textArea.value = dataFromLokalStorage.message || '';
-  formData.message = dataFromLokalStorage.message || '';
+const dataFromLocalStorage = JSON.parse(localStorage.getItem(localStorageKey));
+if (dataFromLocalStorage) {
+  email.value = dataFromLocalStorage.email || '';
+  formData.email = dataFromLocalStorage.email || '';
+  textArea.value = dataFromLocalStorage.message || '';
+  formData.message = dataFromLocalStorage.message || '';
 }
 
 form.addEventListener('input', event => {
@@ -19,16 +19,12 @@ form.addEventListener('input', event => {
 
 form.addEventListener('submit', event => {
   event.preventDefault();
-  if (email.value !== '' && textArea.value !== '') {
-    console.log(localStorage);
+  if (email.value.trim() !== '' && textArea.value.trim() !== '') {
     localStorage.removeItem(localStorageKey);
     form.reset();
-    console.log(localStorage);
     formData.email = '';
     formData.message = '';
   } else {
     alert('Fill please all fields');
   }
 });
-
-//localStorage.removeItem(localStorageKey);
