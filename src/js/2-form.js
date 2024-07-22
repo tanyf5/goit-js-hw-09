@@ -27,4 +27,6 @@ form.addEventListener('submit', event => {
   } else {
     alert('Fill please all fields');
   }
+
+  console.log(formData);
 });
