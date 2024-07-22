@@ -20,13 +20,12 @@ form.addEventListener('input', event => {
 form.addEventListener('submit', event => {
   event.preventDefault();
   if (email.value.trim() !== '' && textArea.value.trim() !== '') {
+    console.log(formData); // Вивід даних в консоль перед видаленням
     localStorage.removeItem(localStorageKey);
     form.reset();
     formData.email = '';
     formData.message = '';
   } else {
     alert('Fill please all fields');
-  }
-
-  console.log(formData);
+  };
 });
